@@ -1,0 +1,17 @@
+C:\Users\David Zahid\Documents\GitHub\proyecto-almacen\Ubicador de Almacen\controlTramites\controlTramites\bin\Debug\controlTramites.exe.config
+C:\Users\David Zahid\Documents\GitHub\proyecto-almacen\Ubicador de Almacen\controlTramites\controlTramites\bin\Debug\controlTramites.exe
+C:\Users\David Zahid\Documents\GitHub\proyecto-almacen\Ubicador de Almacen\controlTramites\controlTramites\bin\Debug\controlTramites.pdb
+C:\Users\David Zahid\Documents\GitHub\proyecto-almacen\Ubicador de Almacen\controlTramites\controlTramites\bin\Debug\controlTramites.xml
+C:\Users\David Zahid\Documents\GitHub\proyecto-almacen\Ubicador de Almacen\controlTramites\controlTramites\obj\Debug\controlTramites.Resources.resources
+C:\Users\David Zahid\Documents\GitHub\proyecto-almacen\Ubicador de Almacen\controlTramites\controlTramites\obj\Debug\controlTramites.vbproj.GenerateResource.Cache
+C:\Users\David Zahid\Documents\GitHub\proyecto-almacen\Ubicador de Almacen\controlTramites\controlTramites\obj\Debug\controlTramites.exe
+C:\Users\David Zahid\Documents\GitHub\proyecto-almacen\Ubicador de Almacen\controlTramites\controlTramites\obj\Debug\controlTramites.xml
+C:\Users\David Zahid\Documents\GitHub\proyecto-almacen\Ubicador de Almacen\controlTramites\controlTramites\obj\Debug\controlTramites.pdb
+C:\Users\David Zahid\Documents\GitHub\proyecto-almacen\Ubicador de Almacen\controlTramites\controlTramites\obj\Debug\controlTramites.vbproj.ResolveComReference.cache
+C:\Users\David Zahid\Documents\GitHub\proyecto-almacen\Ubicador de Almacen\controlTramites\controlTramites\obj\Debug\controlTramites.frmBeneficiario.resources
+C:\Users\David Zahid\Documents\GitHub\proyecto-almacen\Ubicador de Almacen\controlTramites\controlTramites\obj\Debug\controlTramites.frmControlTramites.resources
+C:\Users\David Zahid\Documents\GitHub\controlTramites\controlTramites\bin\Debug\controlTramites.exe.config
+C:\Users\David Zahid\Documents\GitHub\controlTramites\controlTramites\obj\Debug\controlTramites.vbproj.ResolveComReference.cache
+C:\Users\David Zahid\Documents\GitHub\controlTramites\controlTramites\obj\Debug\controlTramites.exe
+C:\Users\David Zahid\Documents\GitHub\controlTramites\controlTramites\obj\Debug\controlTramites.xml
+C:\Users\David Zahid\Documents\GitHub\controlTramites\controlTramites\obj\Debug\controlTramites.pdb
