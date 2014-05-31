@@ -12,6 +12,8 @@ Public Class frmBeneficiario
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'ControltramitesDataSet.beneficiarios' Puede moverla o quitarla según sea necesario.
+        Me.BeneficiariosTableAdapter.Fill(Me.ControltramitesDataSet.beneficiarios)
 
     End Sub
 
@@ -64,5 +66,12 @@ Public Class frmBeneficiario
 
     Private Sub dtFechaNacimiento_ValueChanged(sender As Object, e As EventArgs) Handles dtFechaNacimiento.ValueChanged
         txtFecha.Text = dtFechaNacimiento.Value
+    End Sub
+
+    Private Sub BeneficiariosBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
+        Me.Validate()
+        Me.BeneficiariosBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.ControltramitesDataSet)
+
     End Sub
 End Class

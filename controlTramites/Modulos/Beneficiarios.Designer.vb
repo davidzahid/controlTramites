@@ -22,6 +22,7 @@ Partial Class frmBeneficiario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.id_beneficiario = New System.Windows.Forms.Label()
         Me.txtBeneficiario = New System.Windows.Forms.TextBox()
         Me.lblNombre = New System.Windows.Forms.Label()
@@ -40,6 +41,21 @@ Partial Class frmBeneficiario
         Me.lblNue = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ControltramitesDataSet = New controlTramites.controltramitesDataSet()
+        Me.BeneficiariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BeneficiariosTableAdapter = New controlTramites.controltramitesDataSetTableAdapters.beneficiariosTableAdapter()
+        Me.TableAdapterManager = New controlTramites.controltramitesDataSetTableAdapters.TableAdapterManager()
+        Me.BeneficiariosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.ControltramitesDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BeneficiariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BeneficiariosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'id_beneficiario
@@ -199,12 +215,86 @@ Partial Class frmBeneficiario
         Me.Label2.TabIndex = 19
         Me.Label2.Text = "Tipo:"
         '
+        'ControltramitesDataSet
+        '
+        Me.ControltramitesDataSet.DataSetName = "controltramitesDataSet"
+        Me.ControltramitesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'BeneficiariosBindingSource
+        '
+        Me.BeneficiariosBindingSource.DataMember = "beneficiarios"
+        Me.BeneficiariosBindingSource.DataSource = Me.ControltramitesDataSet
+        '
+        'BeneficiariosTableAdapter
+        '
+        Me.BeneficiariosTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.beneficiariosTableAdapter = Me.BeneficiariosTableAdapter
+        Me.TableAdapterManager.UpdateOrder = controlTramites.controltramitesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'BeneficiariosDataGridView
+        '
+        Me.BeneficiariosDataGridView.AutoGenerateColumns = False
+        Me.BeneficiariosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.BeneficiariosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
+        Me.BeneficiariosDataGridView.DataSource = Me.BeneficiariosBindingSource
+        Me.BeneficiariosDataGridView.Location = New System.Drawing.Point(40, 261)
+        Me.BeneficiariosDataGridView.Name = "BeneficiariosDataGridView"
+        Me.BeneficiariosDataGridView.Size = New System.Drawing.Size(363, 220)
+        Me.BeneficiariosDataGridView.TabIndex = 20
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "id_beneficiario"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "id_beneficiario"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nue"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "nue"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "nombre"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "nombre"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "nacionalidad"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "nacionalidad"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "sexo"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "sexo"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "fecha_nacimiento"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "fecha_nacimiento"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "tipo_beneficiario"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "tipo_beneficiario"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        '
         'frmBeneficiario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DodgerBlue
-        Me.ClientSize = New System.Drawing.Size(467, 301)
+        Me.ClientSize = New System.Drawing.Size(439, 522)
+        Me.Controls.Add(Me.BeneficiariosDataGridView)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.lblNue)
@@ -226,6 +316,9 @@ Partial Class frmBeneficiario
         Me.Name = "frmBeneficiario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Beneficiario"
+        CType(Me.ControltramitesDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BeneficiariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BeneficiariosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -248,5 +341,17 @@ Partial Class frmBeneficiario
     Friend WithEvents lblNue As System.Windows.Forms.Label
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents ControltramitesDataSet As controlTramites.controltramitesDataSet
+    Friend WithEvents BeneficiariosBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents BeneficiariosTableAdapter As controlTramites.controltramitesDataSetTableAdapters.beneficiariosTableAdapter
+    Friend WithEvents TableAdapterManager As controlTramites.controltramitesDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents BeneficiariosDataGridView As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
 
 End Class
