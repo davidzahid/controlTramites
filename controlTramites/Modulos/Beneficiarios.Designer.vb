@@ -61,6 +61,7 @@ Partial Class frmBeneficiario
         'id_beneficiario
         '
         Me.id_beneficiario.AutoSize = True
+        Me.id_beneficiario.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.id_beneficiario.Location = New System.Drawing.Point(37, 38)
         Me.id_beneficiario.Name = "id_beneficiario"
         Me.id_beneficiario.Size = New System.Drawing.Size(82, 13)
@@ -78,6 +79,7 @@ Partial Class frmBeneficiario
         'lblNombre
         '
         Me.lblNombre.AutoSize = True
+        Me.lblNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblNombre.Location = New System.Drawing.Point(37, 80)
         Me.lblNombre.Name = "lblNombre"
         Me.lblNombre.Size = New System.Drawing.Size(44, 13)
@@ -94,6 +96,7 @@ Partial Class frmBeneficiario
         'lblNacionalidad
         '
         Me.lblNacionalidad.AutoSize = True
+        Me.lblNacionalidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblNacionalidad.Location = New System.Drawing.Point(37, 124)
         Me.lblNacionalidad.Name = "lblNacionalidad"
         Me.lblNacionalidad.Size = New System.Drawing.Size(69, 13)
@@ -123,6 +126,7 @@ Partial Class frmBeneficiario
         'lblSexo
         '
         Me.lblSexo.AutoSize = True
+        Me.lblSexo.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblSexo.Location = New System.Drawing.Point(281, 124)
         Me.lblSexo.Name = "lblSexo"
         Me.lblSexo.Size = New System.Drawing.Size(31, 13)
@@ -142,6 +146,7 @@ Partial Class frmBeneficiario
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label1.Location = New System.Drawing.Point(204, 159)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(108, 13)
@@ -191,6 +196,7 @@ Partial Class frmBeneficiario
         'lblNue
         '
         Me.lblNue.AutoSize = True
+        Me.lblNue.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblNue.Location = New System.Drawing.Point(271, 40)
         Me.lblNue.Name = "lblNue"
         Me.lblNue.Size = New System.Drawing.Size(30, 13)
@@ -209,6 +215,7 @@ Partial Class frmBeneficiario
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label2.Location = New System.Drawing.Point(37, 159)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(31, 13)
@@ -312,7 +319,7 @@ Partial Class frmBeneficiario
         Me.Controls.Add(Me.lblNombre)
         Me.Controls.Add(Me.txtBeneficiario)
         Me.Controls.Add(Me.id_beneficiario)
-        Me.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Name = "frmBeneficiario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Beneficiario"

@@ -18,33 +18,62 @@ Public Class frmBeneficiario
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnVerificar.Click
+        'RECIBE SELECCION DE txtnue
 
         Try
-            If (txtNombre.Text.Equals("MODESTA LUCIA SANDOVAL") Or txtNue.Text.Equals("1234")) Then
-                MessageBox.Show("Usuario Existente")
-                'datos que se cargaran de la base de datos 
-                'en caso de que el nombre del beneficiario o el NUT exista'
-                txtBeneficiario.Text = 2
-                txtNombre.Text = "MODESTA LUCIA SANDOVAL"
-                cbxNacionalidad.Text = "Nicaragua"
-                cbxSexo.Text = "Femenina"
-                cbxNacionalidad.Enabled = False
-                cbxSexo.Enabled = False
-                dtFechaNacimiento.Enabled = False
-                frmControlTramites.Show()
-                '-------------------------------'
+            If (txtNue.Text.Length) > 0 Then
+                txtBeneficiario.Text = Val(Me.BeneficiariosTableAdapter.consultar_nue(txtNue.Text))
+                Dim result As Integer = MessageBox.Show("Desea continuar con el registro", "caption", MessageBoxButtons.OKCancel)
+                If result = DialogResult.Cancel Then
+                    MessageBox.Show("Cancel pressed")
+                ElseIf result = DialogResult.OK Then
+                    frmControlTramites.Show()
+                End If
+   
+            ElseIf (txtNombre.Text.Length > 0) Then
+                txtBeneficiario.Text = Val(Me.BeneficiariosTableAdapter.consultar_nombre(txtNombre.Text))
+                Dim result As Integer = MessageBox.Show("Desea continuar con el registro", "caption", MessageBoxButtons.OKCancel)
+                If result = DialogResult.Cancel Then
+                    MessageBox.Show("Cancel pressed")
+                ElseIf result = DialogResult.OK Then
+                    frmControlTramites.Show()
+                End If
+
             Else
-                MessageBox.Show("Registre nuevo usuario")
-                txtBeneficiario.Text = 2
-                lblNombre.Enabled = True
-                cbxNacionalidad.Enabled = True
-                cbxSexo.Enabled = True
-                dtFechaNacimiento.Enabled = True
-
+                MessageBox.Show("Ingrese NUE o NOMBRE")
             End If
+         
         Catch ex As Exception
-
+            MessageBox.Show("Error")
         End Try
+
+        '        
+        '       Try
+        'If (txtNombre.Text.Equals("MODESTA LUCIA SANDOVAL") Or txtNue.Text.Equals("1234")) Then
+        '    MessageBox.Show("Usuario Existente")
+        'datos que se cargaran de la base de datos 
+        'en caso de que el nombre del beneficiario o el NUT exista'
+        'txtBeneficiario.Text = 2
+        'txtNombre.Text = "MODESTA LUCIA SANDOVAL"
+        'cbxNacionalidad.Text = "Nicaragua"
+        'cbxSexo.Text = "Femenina"
+        'cbxNacionalidad.Enabled = False
+        'cbxSexo.Enabled = False
+        'dtFechaNacimiento.Enabled = False
+        'frmControlTramites.Show()
+        '-------------------------------'
+        'Else
+        'MessageBox.Show("Registre nuevo usuario")
+        'txtBeneficiario.Text = 2
+        'lblNombre.Enabled = True
+        'cbxNacionalidad.Enabled = True
+        'cbxSexo.Enabled = True
+        'dtFechaNacimiento.Enabled = True
+
+        'End If
+        'Catch ex As Exception
+
+        '        End Try
 
     End Sub
 
