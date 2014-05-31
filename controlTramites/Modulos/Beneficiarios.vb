@@ -22,14 +22,29 @@ Public Class frmBeneficiario
 
         Try
             If (txtNue.Text.Length) > 0 Then
+
+           
+
                 txtBeneficiario.Text = Val(Me.BeneficiariosTableAdapter.consultar_nue(txtNue.Text))
-                Dim result As Integer = MessageBox.Show("Desea continuar con el registro", "caption", MessageBoxButtons.OKCancel)
-                If result = DialogResult.Cancel Then
-                    MessageBox.Show("Cancel pressed")
-                ElseIf result = DialogResult.OK Then
-                    frmControlTramites.Show()
+                If (txtBeneficiario.Text < Val(Me.BeneficiariosTableAdapter.consultar_nue(txtNue.Text))) Then
+                    Dim result As Integer = MessageBox.Show("Desea continuar con el registro", "caption", MessageBoxButtons.OKCancel)
+                    If result = DialogResult.Cancel Then
+                        MessageBox.Show("Presiono cancelar")
+                        'Agregar función mas adelante'
+                    ElseIf result = DialogResult.OK Then
+                        frmControlTramites.Show()
+                    End If
+                Else
+                    Dim result As Integer = MessageBox.Show("Lamentablemente el beneficiario con NUE: " + txtNue.Text + " no existe, ¿desea registrarlo?", "Aviso", MessageBoxButtons.OKCancel)
+                    If result = DialogResult.Cancel Then
+                        MessageBox.Show("Presiono cancelar")
+                        'Agregar función mas adelante'
+                    ElseIf result = DialogResult.OK Then
+
+                        txtNue.Focus()
+                    End If
+                  
                 End If
-   
             ElseIf (txtNombre.Text.Length > 0) Then
                 txtBeneficiario.Text = Val(Me.BeneficiariosTableAdapter.consultar_nombre(txtNombre.Text))
                 Dim result As Integer = MessageBox.Show("Desea continuar con el registro", "caption", MessageBoxButtons.OKCancel)
@@ -42,7 +57,7 @@ Public Class frmBeneficiario
             Else
                 MessageBox.Show("Ingrese NUE o NOMBRE")
             End If
-         
+
         Catch ex As Exception
             MessageBox.Show("Error")
         End Try
