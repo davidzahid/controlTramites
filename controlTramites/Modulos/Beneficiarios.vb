@@ -23,19 +23,78 @@ Public Class frmBeneficiario
         Try
             If (txtNue.Text.Length) > 0 Then
                 txtBeneficiario.Text = Val(Me.BeneficiariosTableAdapter.consultar_nue(txtNue.Text))
+
                 If (txtBeneficiario.Text = Val(Me.BeneficiariosTableAdapter.consultar_nue(txtNue.Text))) Then
                     'AGREGAMOS DATOS DEL BENEFICIARIO EN CASO DE QUE ÉSTE EXISTA'
+                    txtNombre.Text = (Me.BeneficiariosTableAdapter.consulta_nombre_nue(txtNue.Text))
+                    cbxSexo.Text = (Me.BeneficiariosTableAdapter.consulta_sexo_nue(txtNue.Text))
+                    cbxNacionalidad.Text = (Me.BeneficiariosTableAdapter.consulta_nacionalidad_nue(txtNue.Text))
+                    cbxTipoBeneficiario.Text = (Me.BeneficiariosTableAdapter.consulta_tipo_nue(txtNue.Text))
+                    dtFechaNacimiento.Value = (Me.BeneficiariosTableAdapter.consulta_fechanacimiento_nue(txtNue.Text))
 
 
-
-                    Dim result As Integer = MessageBox.Show("Desea continuar con el registro", "caption", MessageBoxButtons.OKCancel)
+                    If (cbxTipoBeneficiario.Text = "Empresa") Then
+                        cbxNacionalidad.Text = (Me.BeneficiariosTableAdapter.consulta_nacionalidad_nue(txtNue.Text))
+                        cbxTipoBeneficiario.Text = (Me.BeneficiariosTableAdapter.consulta_tipo_nue(txtNue.Text))
+                    ElseIf (cbxTipoBeneficiario.Text = "Persona") Then
+                        txtNombre.Text = (Me.BeneficiariosTableAdapter.consulta_nombre_nue(txtNue.Text))
+                        cbxSexo.Text = (Me.BeneficiariosTableAdapter.consulta_sexo_nue(txtNue.Text))
+                        cbxNacionalidad.Text = (Me.BeneficiariosTableAdapter.consulta_nacionalidad_nue(txtNue.Text))
+                        cbxTipoBeneficiario.Text = (Me.BeneficiariosTableAdapter.consulta_tipo_nue(txtNue.Text))
+                        dtFechaNacimiento.Value = (Me.BeneficiariosTableAdapter.consulta_fechanacimiento_nue(txtNue.Text))
+                    End If
+                    ''
+                    Dim result As Integer = MessageBox.Show("Para continuar, presionar Aceptar", "Beneficiario Encontrado con Nue", MessageBoxButtons.OKCancel)
                     If result = DialogResult.Cancel Then
                         MessageBox.Show("Presiono cancelar")
                         'Agregar función mas adelante'
                     ElseIf result = DialogResult.OK Then
                         frmControlTramites.Show()
                     End If
-                Else
+
+                End If
+
+                'FINALIZA CICLO DE VERIFICACIÓN DE NUE'
+            ElseIf (txtNombre.Text.Length > 0) Then
+                txtBeneficiario.Text = Val(Me.BeneficiariosTableAdapter.consultar_nombre(txtNombre.Text))
+
+                If (txtBeneficiario.Text = Val(Me.BeneficiariosTableAdapter.consultar_nombre(txtNombre.Text))) Then
+                    'AGREGAMOS DATOS DEL BENEFICIARIO EN CASO DE QUE ÉSTE EXISTA'
+
+               
+                    If (cbxTipoBeneficiario.Text = "Empresa") Then
+                        cbxNacionalidad.Text = (Me.BeneficiariosTableAdapter.consulta_nacionalidad_nombre(txtNombre.Text))
+                        cbxTipoBeneficiario.Text = (Me.BeneficiariosTableAdapter.consulta_tipo_nombre(txtNombre.Text))
+                    ElseIf (cbxTipoBeneficiario.Text = "Persona") Then
+                        cbxSexo.Text = (Me.BeneficiariosTableAdapter.consulta_sexo_nombre(txtNombre.Text))
+                        cbxNacionalidad.Text = (Me.BeneficiariosTableAdapter.consulta_nacionalidad_nombre(txtNombre.Text))
+                        cbxTipoBeneficiario.Text = (Me.BeneficiariosTableAdapter.consulta_tipo_nombre(txtNombre.Text))
+                        dtFechaNacimiento.Value = (Me.BeneficiariosTableAdapter.consulta_fechanacimiento_nombre(txtNombre.Text))
+                        txtNue.Text = (Me.BeneficiariosTableAdapter.consulta_nue_nombre(txtNombre.Text))
+                    End If
+                    ''
+                    Dim result As Integer = MessageBox.Show("Para continuar, presionar Aceptar", "Beneficiario Encontrado con Nombre", MessageBoxButtons.OKCancel)
+                    If result = DialogResult.Cancel Then
+                        MessageBox.Show("Cancel pressed")
+                    ElseIf result = DialogResult.OK Then
+                        frmControlTramites.Show()
+                    End If
+
+
+                End If
+
+                'FINALIZA CICLO DE VERIFICACIÓN DE NUE'
+            Else
+
+                MessageBox.Show("Ingrese NUE o NOMBRE")
+            End If
+
+
+
+        Catch ex As Exception
+      
+            If (txtNue.Text.Length) > 0 Then
+                If (txtBeneficiario.Text < Val(Me.BeneficiariosTableAdapter.consultar_nue(txtNue.Text))) Then
                     Dim result As Integer = MessageBox.Show("Lamentablemente el beneficiario con NUE: " + txtNue.Text + " no existe, ¿desea registrarlo?", "Aviso", MessageBoxButtons.OKCancel)
                     If result = DialogResult.Cancel Then
                         MessageBox.Show("Presiono cancelar")
@@ -44,23 +103,19 @@ Public Class frmBeneficiario
 
                         txtNue.Focus()
                     End If
-
                 End If
-            ElseIf (txtNombre.Text.Length > 0) Then
-                txtBeneficiario.Text = Val(Me.BeneficiariosTableAdapter.consultar_nombre(txtNombre.Text))
-                Dim result As Integer = MessageBox.Show("Desea continuar con el registro", "caption", MessageBoxButtons.OKCancel)
-                If result = DialogResult.Cancel Then
-                    MessageBox.Show("Cancel pressed")
-                ElseIf result = DialogResult.OK Then
-                    frmControlTramites.Show()
-                End If
+            ElseIf (txtNombre.Text.Length) > 0 Then
+                If (txtBeneficiario.Text < Val(Me.BeneficiariosTableAdapter.consultar_nombre(txtNombre.Text))) Then
+                    Dim result As Integer = MessageBox.Show("Lamentablemente el beneficiario con Nombre: " + txtNombre.Text + " no existe, ¿desea registrarlo?", "Aviso", MessageBoxButtons.OKCancel)
+                    If result = DialogResult.Cancel Then
+                        MessageBox.Show("Presiono cancelar")
+                        'Agregar función mas adelante'
+                    ElseIf result = DialogResult.OK Then
 
-            Else
-                MessageBox.Show("Ingrese NUE o NOMBRE")
+                        txtNue.Focus()
+                    End If
+                End If
             End If
-
-        Catch ex As Exception
-            MessageBox.Show("Error")
         End Try
 
         '        
@@ -109,9 +164,7 @@ Public Class frmBeneficiario
     End Sub
 
 
-    Private Sub dtFechaNacimiento_ValueChanged(sender As Object, e As EventArgs) Handles dtFechaNacimiento.ValueChanged
-        txtFecha.Text = dtFechaNacimiento.Value
-    End Sub
+
 
     Private Sub BeneficiariosBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
@@ -119,4 +172,33 @@ Public Class frmBeneficiario
         Me.TableAdapterManager.UpdateAll(Me.ControltramitesDataSet)
 
     End Sub
+
+    Private Sub dtFechaNacimiento_ValueChanged(sender As Object, e As EventArgs) Handles dtFechaNacimiento.ValueChanged
+        txtFecha.Text = dtFechaNacimiento.Value
+    End Sub
+
+   
+
+  
+    Private Sub cbxTipoBeneficiario_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxTipoBeneficiario.SelectedIndexChanged
+        Refresh()
+        If (cbxTipoBeneficiario.Text = "Empresa") Then
+            txtNue.Enabled = False
+            cbxSexo.Enabled = False
+            dtFechaNacimiento.Enabled = False
+
+            txtNue.Clear()
+            cbxSexo.ResetText()
+            dtFechaNacimiento.ResetText()
+
+            txtNombre.Focus()
+        ElseIf (cbxTipoBeneficiario.Text = "Persona") Then
+            txtNue.Enabled = True
+            cbxSexo.Enabled = True
+            dtFechaNacimiento.Enabled = True
+            txtNue.Focus()
+        End If
+    End Sub
+
+
 End Class

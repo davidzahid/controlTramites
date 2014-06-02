@@ -39,12 +39,8 @@ Partial Class frmBeneficiario
         Me.txtFecha = New System.Windows.Forms.TextBox()
         Me.txtNue = New System.Windows.Forms.TextBox()
         Me.lblNue = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cbxTipoBeneficiario = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.ControltramitesDataSet = New controlTramites.controltramitesDataSet()
-        Me.BeneficiariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BeneficiariosTableAdapter = New controlTramites.controltramitesDataSetTableAdapters.beneficiariosTableAdapter()
-        Me.TableAdapterManager = New controlTramites.controltramitesDataSetTableAdapters.TableAdapterManager()
         Me.BeneficiariosDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -53,28 +49,34 @@ Partial Class frmBeneficiario
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.ControltramitesDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BeneficiariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.BeneficiariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ControltramitesDataSet = New controlTramites.controltramitesDataSet()
+        Me.BeneficiariosTableAdapter = New controlTramites.controltramitesDataSetTableAdapters.beneficiariosTableAdapter()
+        Me.TableAdapterManager = New controlTramites.controltramitesDataSetTableAdapters.TableAdapterManager()
         CType(Me.BeneficiariosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BeneficiariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ControltramitesDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'id_beneficiario
         '
         Me.id_beneficiario.AutoSize = True
         Me.id_beneficiario.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.id_beneficiario.Location = New System.Drawing.Point(37, 38)
+        Me.id_beneficiario.Location = New System.Drawing.Point(31, 211)
         Me.id_beneficiario.Name = "id_beneficiario"
         Me.id_beneficiario.Size = New System.Drawing.Size(82, 13)
         Me.id_beneficiario.TabIndex = 0
         Me.id_beneficiario.Text = "ID Beneficiario: "
+        Me.id_beneficiario.Visible = False
         '
         'txtBeneficiario
         '
         Me.txtBeneficiario.Enabled = False
-        Me.txtBeneficiario.Location = New System.Drawing.Point(137, 35)
+        Me.txtBeneficiario.Location = New System.Drawing.Point(131, 208)
         Me.txtBeneficiario.Name = "txtBeneficiario"
         Me.txtBeneficiario.Size = New System.Drawing.Size(82, 20)
         Me.txtBeneficiario.TabIndex = 1
+        Me.txtBeneficiario.Visible = False
         '
         'lblNombre
         '
@@ -105,7 +107,6 @@ Partial Class frmBeneficiario
         '
         'cbxNacionalidad
         '
-        Me.cbxNacionalidad.Enabled = False
         Me.cbxNacionalidad.FormattingEnabled = True
         Me.cbxNacionalidad.Items.AddRange(New Object() {"Italiana", "China", "Mexicana", "Guatemalteca", "Italiana", "Francesa", "Española", "Cubana", "Brasileña"})
         Me.cbxNacionalidad.Location = New System.Drawing.Point(114, 121)
@@ -115,7 +116,6 @@ Partial Class frmBeneficiario
         '
         'cbxSexo
         '
-        Me.cbxSexo.Enabled = False
         Me.cbxSexo.FormattingEnabled = True
         Me.cbxSexo.Items.AddRange(New Object() {"Masculino", "Femenino"})
         Me.cbxSexo.Location = New System.Drawing.Point(318, 121)
@@ -170,7 +170,7 @@ Partial Class frmBeneficiario
         Me.btnPrueba.BackColor = System.Drawing.Color.Ivory
         Me.btnPrueba.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPrueba.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnPrueba.Location = New System.Drawing.Point(44, 221)
+        Me.btnPrueba.Location = New System.Drawing.Point(75, 260)
         Me.btnPrueba.Name = "btnPrueba"
         Me.btnPrueba.Size = New System.Drawing.Size(75, 23)
         Me.btnPrueba.TabIndex = 14
@@ -180,15 +180,14 @@ Partial Class frmBeneficiario
         '
         'txtFecha
         '
-        Me.txtFecha.Location = New System.Drawing.Point(137, 183)
+        Me.txtFecha.Location = New System.Drawing.Point(67, 481)
         Me.txtFecha.Name = "txtFecha"
         Me.txtFecha.Size = New System.Drawing.Size(279, 20)
         Me.txtFecha.TabIndex = 15
-        Me.txtFecha.Visible = False
         '
         'txtNue
         '
-        Me.txtNue.Location = New System.Drawing.Point(316, 35)
+        Me.txtNue.Location = New System.Drawing.Point(316, 40)
         Me.txtNue.Name = "txtNue"
         Me.txtNue.Size = New System.Drawing.Size(100, 20)
         Me.txtNue.TabIndex = 16
@@ -197,50 +196,30 @@ Partial Class frmBeneficiario
         '
         Me.lblNue.AutoSize = True
         Me.lblNue.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblNue.Location = New System.Drawing.Point(271, 40)
+        Me.lblNue.Location = New System.Drawing.Point(271, 43)
         Me.lblNue.Name = "lblNue"
         Me.lblNue.Size = New System.Drawing.Size(30, 13)
         Me.lblNue.TabIndex = 17
         Me.lblNue.Text = "NUE"
         '
-        'ComboBox1
+        'cbxTipoBeneficiario
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Empresa", "Persona"})
-        Me.ComboBox1.Location = New System.Drawing.Point(93, 155)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(105, 21)
-        Me.ComboBox1.TabIndex = 18
+        Me.cbxTipoBeneficiario.FormattingEnabled = True
+        Me.cbxTipoBeneficiario.Items.AddRange(New Object() {"Empresa", "Persona"})
+        Me.cbxTipoBeneficiario.Location = New System.Drawing.Point(34, 35)
+        Me.cbxTipoBeneficiario.Name = "cbxTipoBeneficiario"
+        Me.cbxTipoBeneficiario.Size = New System.Drawing.Size(163, 21)
+        Me.cbxTipoBeneficiario.TabIndex = 18
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(37, 159)
+        Me.Label2.Location = New System.Drawing.Point(31, 16)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(31, 13)
+        Me.Label2.Size = New System.Drawing.Size(166, 13)
         Me.Label2.TabIndex = 19
-        Me.Label2.Text = "Tipo:"
-        '
-        'ControltramitesDataSet
-        '
-        Me.ControltramitesDataSet.DataSetName = "controltramitesDataSet"
-        Me.ControltramitesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'BeneficiariosBindingSource
-        '
-        Me.BeneficiariosBindingSource.DataMember = "beneficiarios"
-        Me.BeneficiariosBindingSource.DataSource = Me.ControltramitesDataSet
-        '
-        'BeneficiariosTableAdapter
-        '
-        Me.BeneficiariosTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.beneficiariosTableAdapter = Me.BeneficiariosTableAdapter
-        Me.TableAdapterManager.UpdateOrder = controlTramites.controltramitesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.Label2.Text = "Seleccione el tipo de beneficiario:"
         '
         'BeneficiariosDataGridView
         '
@@ -248,9 +227,9 @@ Partial Class frmBeneficiario
         Me.BeneficiariosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.BeneficiariosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
         Me.BeneficiariosDataGridView.DataSource = Me.BeneficiariosBindingSource
-        Me.BeneficiariosDataGridView.Location = New System.Drawing.Point(40, 261)
+        Me.BeneficiariosDataGridView.Location = New System.Drawing.Point(23, 325)
         Me.BeneficiariosDataGridView.Name = "BeneficiariosDataGridView"
-        Me.BeneficiariosDataGridView.Size = New System.Drawing.Size(363, 220)
+        Me.BeneficiariosDataGridView.Size = New System.Drawing.Size(366, 137)
         Me.BeneficiariosDataGridView.TabIndex = 20
         '
         'DataGridViewTextBoxColumn1
@@ -295,15 +274,35 @@ Partial Class frmBeneficiario
         Me.DataGridViewTextBoxColumn7.HeaderText = "tipo_beneficiario"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         '
+        'BeneficiariosBindingSource
+        '
+        Me.BeneficiariosBindingSource.DataMember = "beneficiarios"
+        Me.BeneficiariosBindingSource.DataSource = Me.ControltramitesDataSet
+        '
+        'ControltramitesDataSet
+        '
+        Me.ControltramitesDataSet.DataSetName = "controltramitesDataSet"
+        Me.ControltramitesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'BeneficiariosTableAdapter
+        '
+        Me.BeneficiariosTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.beneficiariosTableAdapter = Me.BeneficiariosTableAdapter
+        Me.TableAdapterManager.UpdateOrder = controlTramites.controltramitesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
         'frmBeneficiario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DodgerBlue
-        Me.ClientSize = New System.Drawing.Size(439, 522)
+        Me.ClientSize = New System.Drawing.Size(432, 252)
         Me.Controls.Add(Me.BeneficiariosDataGridView)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cbxTipoBeneficiario)
         Me.Controls.Add(Me.lblNue)
         Me.Controls.Add(Me.txtNue)
         Me.Controls.Add(Me.txtFecha)
@@ -323,9 +322,9 @@ Partial Class frmBeneficiario
         Me.Name = "frmBeneficiario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Beneficiario"
-        CType(Me.ControltramitesDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BeneficiariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BeneficiariosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BeneficiariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ControltramitesDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -346,7 +345,7 @@ Partial Class frmBeneficiario
     Friend WithEvents txtFecha As System.Windows.Forms.TextBox
     Friend WithEvents txtNue As System.Windows.Forms.TextBox
     Friend WithEvents lblNue As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxTipoBeneficiario As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents ControltramitesDataSet As controlTramites.controltramitesDataSet
     Friend WithEvents BeneficiariosBindingSource As System.Windows.Forms.BindingSource
