@@ -22,11 +22,12 @@ Public Class frmBeneficiario
 
         Try
             If (txtNue.Text.Length) > 0 Then
-
-           
-
                 txtBeneficiario.Text = Val(Me.BeneficiariosTableAdapter.consultar_nue(txtNue.Text))
-                If (txtBeneficiario.Text < Val(Me.BeneficiariosTableAdapter.consultar_nue(txtNue.Text))) Then
+                If (txtBeneficiario.Text = Val(Me.BeneficiariosTableAdapter.consultar_nue(txtNue.Text))) Then
+                    'AGREGAMOS DATOS DEL BENEFICIARIO EN CASO DE QUE ÉSTE EXISTA'
+
+
+
                     Dim result As Integer = MessageBox.Show("Desea continuar con el registro", "caption", MessageBoxButtons.OKCancel)
                     If result = DialogResult.Cancel Then
                         MessageBox.Show("Presiono cancelar")
@@ -43,7 +44,7 @@ Public Class frmBeneficiario
 
                         txtNue.Focus()
                     End If
-                  
+
                 End If
             ElseIf (txtNombre.Text.Length > 0) Then
                 txtBeneficiario.Text = Val(Me.BeneficiariosTableAdapter.consultar_nombre(txtNombre.Text))
